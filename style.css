@@ -1,13 +1,188 @@
-body {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  background-color: #f0f0f0;
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
-h1 {
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+  font-family: "Nunito Sans";
+  background: linear-gradient(271deg,
+      #41cfaa,
+      #0e9572,
+      #29bde3,
+      #118cac,
+      #365bdc);
+  background-size: 1000% 1000%;
+
+  -webkit-animation: AnimationName 32s ease infinite;
+  -moz-animation: AnimationName 32s ease infinite;
+  animation: AnimationName 32s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+  0% {
+    background-position: 11% 0%;
+  }
+
+  50% {
+    background-position: 90% 100%;
+  }
+
+  100% {
+    background-position: 11% 0%;
+  }
+}
+
+@-moz-keyframes AnimationName {
+  0% {
+    background-position: 11% 0%;
+  }
+
+  50% {
+    background-position: 90% 100%;
+  }
+
+  100% {
+    background-position: 11% 0%;
+  }
+}
+
+@keyframes AnimationName {
+  0% {
+    background-position: 11% 0%;
+  }
+
+  50% {
+    background-position: 90% 100%;
+  }
+
+  100% {
+    background-position: 11% 0%;
+  }
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+}
+
+.wrap {
+  width: 400px;
+  margin: 0 auto;
+  margin: 100px auto;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 5px 0;
+  background: #fff;
+}
+
+.input {
+  float: right;
+  color: #fff;
+}
+
+.input input {
+  padding: 7px;
+  border-bottom: 2px solid #e8a874;
+  border-radius: 2px;
+  background: transparent;
+  margin: 5px;
   color: #333;
 }
 
-p {
-  color: #555;
+.input .send {
+  padding: 10px;
+  cursor: pointer;
+  background: #e8a874;
+  color: #fff;
+  border-radius: 7px;
+  transition: all 0.3s ease-in-out;
+  font-size: 12px;
+  width: 90px;
+}
+
+.input .send:hover {
+  border: 3px solid #e8a874;
+  background: inherit;
+  color: #e8a874;
+}
+
+.list {
+  margin: 5px;
+  padding: 50px 100px 100px 0;
+  text-align: left;
+  list-style: none;
+  color: #333;
+}
+
+.list li {
+  border-bottom: 2px solid #e8a874;
+  padding: 10px 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.list li:hover {
+  border-bottom: 4px solid #e8a874;
+}
+
+.clearbox {
+  clear: both;
+}
+
+a {
+  margin: 10px;
+  font-size: 20px;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+a:hover {
+  font-size: 25px;
 }

@@ -1,39 +1,50 @@
-const taskInput = document.getElementById("taskInput");
-const addTaskButton = document.getElementById("addTask");
-const taskList = document.getElementById("taskList");
+const inputList = [];
 
-// Function to add a new task
-function addTask() {
-  const taskText = taskInput.value;
-  if (taskText.trim() !== "") {
-    const li = document.createElement("li");
-    const checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
-    const taskSpan = document.createElement("span");
-    taskSpan.textContent = taskText;
-    const removeButton = document.createElement("button");
-    removeButton.textContent = "Remove";
+const button = document.querySelector(".send");
+const inputData = document.querySelector(".textContent");
+const list = document.querySelector(".list");
+const enter = document.querySelector("body");
 
-    // Add a click event to remove the task
-    removeButton.addEventListener("click", () => {
-      li.remove();
-    });
+window.onload = updateList;
 
-    li.appendChild(checkbox);
-    li.appendChild(taskSpan);
-    li.appendChild(removeButton);
+//Assignment of enter key and Add ToDo butt
+button.addEventListener("click", input, false);
+enter.addEventListener("keydown", input, false);
 
-    taskList.appendChild(li);
-    taskInput.value = "";
+// This function stores your ToDo in your local storage
+function input(e) {
+  if (e.keyCode == 13 || e.target.className == "send") {
+    inputList.push(inputData.value);
+    UpdateStorage(inputList);
+    updateList();
   }
 }
 
-// Add task when the "Add" button is clicked
-addTaskButton.addEventListener("click", addTask);
-
-// Add task when Enter key is pressed in the input field
-taskInput.addEventListener("keydown", (event) => {
-  if (event.key === "Enter") {
-    addTask();
+function updateList() {
+  list.innerHTML = "";
+  inputList = JSON.parse(localStorage.getItem("note")) || [];
+  for (i = 0; i < inputList.length; i++) {
+    const str = document.createElement("li");
+    str.innerHTML = "<a href=" + "" + ">👍</a>" + "| " + inputList[i];
+    list.appendChild(str);
+    str.setAttribute("data-num", i);
   }
-});
+}
+function UpdateStorage(listItem) {
+  const storage = JSON.stringify(listItem);
+  localStorage.setItem("note", storage);
+}
+
+list.addEventListener("click", remove, false);
+
+function remove(e) {
+  if (e.target.nodeName == "A") {
+    e.preventDefault();
+    var arrayNum = e.target.parentNode.dataset.num;
+    inputList.splice(arrayNum, 1);
+    UpdateStorage(inputList);
+    updateList();
+  } else {
+    return;
+  }
+}

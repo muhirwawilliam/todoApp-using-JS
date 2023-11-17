@@ -3,23 +3,25 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Todo List App</title>
+  <title>Note app with tiny storage - By Ned</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <div class="container">
-    <h1>Todo List</h1>
-    <div class="input-container">
-      <input type="text" id="taskInput" placeholder="Add a new task">
-      <button id="addTask">Add</button>
+  <div class="wrap">
+    <div class="content">
+      <div class="input">
+        <input type="text" placeholder="ToDo goes here. " class="textContent">
+        <input type="button" value="Add ToDO" class="send">
+        <ul class="list">
+        </ul>
+      </div>
+      <div class="clearbox"></div>
     </div>
-    <ul id="taskList">
-      <!-- Tasks will be added here -->
-    </ul>
   </div>
-  <script src="script.js"></script>
+
+  <script type="text/javascript" src="script.js"></script>
+
 </body>
 
 </html>
